@@ -1,0 +1,33 @@
+#!/usr/bin/env node
+var timeoutID;
+
+var alarm = function(timeoutID) {
+	clearTimeout(timeoutID);
+	console.log('TIME IS UP');	
+};
+
+module.exports = {
+alarm: alarm,
+setReminder: function(alarmTime,callback) {
+	var now = Date.parse(new Date());
+	var milliseconds = alarmTime - now;
+
+	//these lines for testing only
+	milliseconds = 5000;
+	//console.log(now, alarmTime, milliseconds);
+	
+	timeoutID = setTimeout(function(){
+		alarm(timeoutID);
+	},milliseconds);
+},
+countUsingTimeout: function() {
+	//count to 10
+	console.log('You are in countUsingTimeout! Lucky you!');
+	var timeoutID = setTimeout(function(){
+		alarm(timeoutID);
+	},10000);
+},
+countUsingReminder: function() {
+	//count to 10
+}
+};

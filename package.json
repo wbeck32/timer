@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/wbeck32/timer/issues"
   },
-  "homepage": "https://github.com/wbeck32/timer"
+  "homepage": "https://github.com/wbeck32/timer",
+  "dependencies": {
+    "alert": "0.0.2"
+  }
 }

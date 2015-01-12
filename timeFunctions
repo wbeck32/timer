@@ -29,5 +29,6 @@ countUsingTimeout: function() {
 },
 countUsingReminder: function() {
 	//count to 10
+	console.log('You are in countUsingReminder!');
 }
 };

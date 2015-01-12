@@ -6,23 +6,27 @@ var alarm = function(timeoutID) {
 	console.log('TIME IS UP');	
 };
 
-module.exports = {
-alarm: alarm,
-setReminder: function(alarmTime,callback) {
+var setReminder = function(alarmTime,callback) {
 	var now = Date.parse(new Date());
+	alarmTime = Date.parse(alarmTime);
 	var milliseconds = alarmTime - now;
 
 	//these lines for testing only
-	milliseconds = 5000;
-	//console.log(now, alarmTime, milliseconds);
+	//milliseconds = 5000;
+	console.log(now, alarmTime, milliseconds);
 	
 	timeoutID = setTimeout(function(){
 		alarm(timeoutID);
 	},milliseconds);
-},
+};
+
+module.exports = {
+alarm: alarm,
+setReminder: setReminder,
 countUsingTimeout: function() {
 	//count to 10
 	console.log('You are in countUsingTimeout! Lucky you!');
+	//prompt user for how long they want the 
 	var timeoutID = setTimeout(function(){
 		alarm(timeoutID);
 	},10000);
@@ -30,5 +34,9 @@ countUsingTimeout: function() {
 countUsingReminder: function() {
 	//count to 10
 	console.log('You are in countUsingReminder!');
+	//prompt user to enter time - in plain language
+	//write up user docs with commander
+	//write unit tests using jasmine
+	setReminder('01-12-15 9:43:10 PST',alarm);
 }
 };
